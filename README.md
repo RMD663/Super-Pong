@@ -8,7 +8,21 @@ Este projeto consiste no desenvolvimento do clássico jogo Pong na Unity, aplica
 
 ### Demonstração do Projeto
 
-Print
+![Print do Projeto](print.png)
+
+---
+
+### Controles do Jogo
+
+O mapeamento foi configurado no mesmo teclado para permitir partidas locais de forma simultânea e sem conflitos:
+
+* **Jogador 1**: 
+  * Movimento para cima: `W`
+  * Movimento para baixo: `S`
+
+* **Jogador 2**: 
+  * Movimento para cima: `Seta para Cima`
+  * Movimento para baixo: `Seta para Baixo`
 
 ---
 
