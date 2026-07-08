@@ -25,12 +25,12 @@ public class GameManager : MonoBehaviour
         _playerPaddle = Instantiate(_playerPaddle, new Vector3(-PaddleSpawnPosition, 0f, 0f), new Quaternion());
         _enemyPaddle = Instantiate(_enemyPaddle, new Vector3(PaddleSpawnPosition, 0f, 0f), new Quaternion());
         
-        PaddleAI enemyAI = _enemyPaddle.GetComponent<PaddleAI>();
+        // PaddleAI enemyAI = _enemyPaddle.GetComponent<PaddleAI>();
 
-        if(enemyAI != null)
-        {
-            enemyAI.ball = _ball;
-        }
+        // if(enemyAI != null)
+        // {
+        //     enemyAI.ball = _ball;
+        // }
     }
 
     void EndGame()

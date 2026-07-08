@@ -23,7 +23,6 @@ public class MovementComponent : MonoBehaviour
     {
         _initialPosition = transform.position;
         _rb = GetComponent<Rigidbody2D>();
-        Debug.Log(_initialPosition);
 
         if (player == PLAYER.P1)
         {
@@ -56,15 +55,18 @@ public class MovementComponent : MonoBehaviour
     void OnEnable()
     {
         GameManager.ResetGame += Reset;
+        _verticalInput?.Enable(); 
     }
 
     void OnDisable()
     {
         GameManager.ResetGame -= Reset;
+        _verticalInput?.Disable();
     }
 
     void Reset()
     {
         transform.position = _initialPosition;
+        _rb.linearVelocity = Vector2.zero;
     }
 }
