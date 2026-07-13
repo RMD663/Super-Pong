@@ -8,7 +8,7 @@ Este projeto consiste no desenvolvimento do clássico jogo Pong na Unity, aplica
 
 ### Demonstração do Projeto
 
-![Print do Projeto](print_b.png)
+![Print do Projeto](print_c.png)
 
 ---
 
