@@ -11,7 +11,8 @@ public class MovementComponent : MonoBehaviour
     [Header("Paddle Movement Stats")]
     public float Speed = 9f;
     public float moveBorders = 3.9f;
-
+    
+    
     [Header("Player Input")]
     public InputActionAsset inputActions;
     private InputAction _verticalInput;
@@ -23,14 +24,19 @@ public class MovementComponent : MonoBehaviour
     {
         _initialPosition = transform.position;
         _rb = GetComponent<Rigidbody2D>();
+    }
 
+    void Start()
+    {
         if (player == PLAYER.P1)
         {
+            Debug.Log("I'm a p1 player");
             _verticalInput = inputActions.FindAction("VerticalAxis");
         }
         
         if (player == PLAYER.P2)
         {
+            Debug.Log("I'm a p2 player");
             _verticalInput = inputActions.FindAction("VerticalAxisP2");
         }
     }
@@ -69,4 +75,5 @@ public class MovementComponent : MonoBehaviour
         transform.position = _initialPosition;
         _rb.linearVelocity = Vector2.zero;
     }
+    
 }

@@ -6,7 +6,8 @@ public class GoalManager : MonoBehaviour
     public enum TEAM
     {
         PLAYER,
-        AI
+        AI,
+        NONE
     }
 
 

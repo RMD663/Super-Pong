@@ -6,13 +6,14 @@ public class Ball : MonoBehaviour
     public float BounceForce = 1f;
     private Vector2 _initialDirection;
     private Rigidbody2D _rb;
+    private bool _gameOver = false;
  
-    void Start()
+    private void Start()
     {
         Reset();
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         Vector2 currentDirection = _rb.linearVelocity.normalized;
 
@@ -23,7 +24,7 @@ public class Ball : MonoBehaviour
         _rb.linearVelocity = currentDirection * newSpeed;
     }
 
-    void ApplyRandomForce(){
+    private void ApplyRandomForce(){
 
         float initialX = Random.value > 0.5f ? 1.0f : -1.0f;
         float initialY = Random.value > 0.5f ? 1.0f : -1.0f;
@@ -33,20 +34,30 @@ public class Ball : MonoBehaviour
         _rb.linearVelocity = _initialDirection * InitialForce;
     }
 
-    void Reset()
+    private void Reset()
     {
-       ApplyRandomForce();
-       transform.position = Vector2.zero;
+        if(_gameOver) return;
+        
+        ApplyRandomForce();
+        transform.position = Vector2.zero;
+        
+    }
+    private void EndGame()
+    {
+        _gameOver = true;
+        _rb.linearVelocity = Vector2.zero;
     }
 
-    void OnEnable()
+    private void OnEnable()
     {
         GameManager.ResetGame += Reset;
+        ScoreManager.GameOver += EndGame;
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
         GameManager.ResetGame -= Reset;
+        ScoreManager.GameOver -= EndGame;
     }
 
 }

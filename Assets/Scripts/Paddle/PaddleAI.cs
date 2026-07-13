@@ -7,11 +7,11 @@ public class PaddleAI : MonoBehaviour
     [HideInInspector]
     public GameObject ball;
 
-    public float Speed = 5.0f;
+    public float Speed = 9.0f;
     private Transform _ballTransform;
     private Rigidbody2D _rb;
 
-    public float moveBorders = 7f;
+    public float moveBorders = 3.9f;
     private float _inputAxis = 0f;
 
     void Awake()
