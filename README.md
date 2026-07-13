@@ -1,8 +1,8 @@
 # EBAC - Curso Unity: Do Zero ao Pro
 
-## Módulo 9 - Criando um jogo: Pong - Movimentos básicos
+## Módulo 10 Criando um jogo: Pong Finalizando
 
-Este projeto consiste no desenvolvimento do clássico jogo Pong na Unity, aplicando o novo Input System para controle local de dois jogadores, física bidimensional e uma arquitetura baseada em eventos para o gerenciamento do fluxo de jogo.
+Este projeto consiste no desenvolvimento do clássico jogo Pong na Unity, aplicando o novo Input System para controle local de dois jogadores, física bidimensional e uma arquitetura baseada em eventos para o gerenciamento do fluxo de jogo. O projeto foi expandido para incluir sistema de persistência de dados, menu interativo e personalização dos jogadores.
 
 ---
 
