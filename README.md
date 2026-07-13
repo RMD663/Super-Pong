@@ -24,27 +24,35 @@ O mapeamento foi configurado no mesmo teclado para permitir partidas locais de f
   * Movimento para cima: `Seta para Cima`
   * Movimento para baixo: `Seta para Baixo`
 
----
 
-### Estrutura do Código
-
-A lógica do projeto foi modularizada em componentes específicos que se comunicam de forma desacoplada através de eventos.
-
-#### 1. Gerenciamento e Fluxo
-
-* **`GameManager.cs`**: Coordena o ciclo de vida da partida. É responsável por instanciar os elementos na cena (paddles e bola) nas posições corretas e gerenciar o início e encerramento do jogo.
-* **`GoalManager.cs`**: Controla as áreas de gatilho (`Trigger`) posicionadas atrás dos paddles para detectar quando a bola sai da tela, disparando o evento que sinaliza qual lado pontuou.
-* **`ScoreManager.cs`**: Monitora os eventos de pontuação, atualiza a interface de texto em tempo real via *TextMeshPro* e valida as condições de término da partida.
-
-#### 2. Controle e Mecânicas de Jogo
-
-* **`MovementComponent.cs`**: Gerencia a movimentação física dos bastões. Utiliza o novo *Input System* diretamente via código para capturar os eixos verticais do Player 1 e Player 2 de forma simultânea no mesmo teclado, além de validar as travas de borda para impedir que os objetos saiam da tela.
-* **`Ball.cs`**: Aplica uma força física inicial em direções aleatórias no começo da rodada e incrementa a velocidade linear da bola a cada colisão detectada com os paddles.
 
 ---
 
 ### Conceitos e Recursos Aplicados
 
-* **Arquitetura Baseada em Eventos**: Implementação de `C# Actions` estáticas para a comunicação entre gerentes e objetos, criando um sistema livre de dependências diretas e facilitando o processo de reinício de jogada.
-* **Novo Input System**: Configuração de ações diretas (`InputActionAsset`) mapeadas por código, permitindo a leitura fluida e sem conflitos de dois jogadores locais no mesmo dispositivo.
-* **Física 2D**: Uso estratégico de componentes `Rigidbody2D` configurados em modo contínuo para evitar falhas de colisão, além do gerenciamento de colisões elásticas e detectores do tipo gatilho.
+**Arquitetura Baseada em Eventos**  
+  Implementação de `C# Actions` estáticas para a comunicação entre gerentes e objetos, criando um sistema livre de dependências diretas e facilitando o processo de reinício de jogada.
+
+  **Novo Input System**  
+  Configuração de ações diretas (`InputActionAsset`) mapeadas por código, permitindo a leitura fluida e sem conflitos de dois jogadores locais no mesmo dispositivo.
+
+  **Física 2D**  
+  Uso estratégico de componentes `Rigidbody2D` configurados em modo contínuo para evitar falhas de colisão, além do gerenciamento de colisões elásticas e detectores do tipo gatilho.
+
+  **Persistência de Dados com PlayerPrefs**  
+  Armazenamento local de nomes dos jogadores, histórico de vitórias e estatísticas, garantindo que as informações sejam mantidas entre sessões de jogo.
+
+  **Interface com TextMeshPro**  
+  Utilização de texto dinâmico e interativo para exibição de pontuações, nomes e mensagens de vitória.
+
+  **Scriptable Objects**  
+  Uso de `PaddleData` para centralizar as configurações dos paddles (nome, cor, jogador) e facilitar a edição e reutilização dos dados.
+
+  **Inteligência Artificial**  
+  Implementação básica de um adversário controlado por IA para o modo singleplayer.
+
+  **Gerenciamento de Cenas**  
+  Navegação entre cenas de menu e jogo, com fluxo completo de início, partida e fim de jogo.
+
+  **Sistema de Reset**  
+  Funcionalidade completa para reiniciar o jogo e limpar todos os dados salvos, proporcionando uma experiência limpa para novos jogadores.
